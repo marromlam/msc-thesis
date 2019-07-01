@@ -1,17 +1,231 @@
-\documentclass{article}
-\usepackage[utf8]{inputenc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												                               %
+% 								    PREAMBLE                                   %
+%																			   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{MSc}
-\author{Marcos Romero}
-\date{July 2019}
+\RequirePackage[english=spanish]{hyphsubst}
+\documentclass[a4paper, 10pt, 
+			   showtrims, drafting,
+			   %final,
+			   twoside, openright
+			  ]{memoir}
+
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+
+
+% Load style
+\usepackage{style}  
+
+% Document data
+\input{tfmData}
+
+% Document dimensions
+\input{tfmDimensions}
+
+% Command definitions
+\input{tfmCommands}
+
+% Colors for corrections
+\definecolor{norm}{rgb}{0.0,0.0,0.0} \definecolor{norm}{rgb}{0.0,0.0,0.0}
+\definecolor{dieg}{rgb}{0.0,0.5,1.0} \definecolor{dieg}{rgb}{0.0,0.0,0.0}
+\definecolor{vero}{rgb}{0.0,1.0,0.5} \definecolor{vero}{rgb}{0.0,0.0,0.0}
+\definecolor{rem}{rgb} {1.0,0.0,0.0} \definecolor{rem}{rgb} {0.0,0.0,0.0}
+\definecolor{new}{rgb} {1.0,0.5,0.0} \definecolor{new}{rgb} {0.0,0.0,0.0}
+
+% Show frames
+\usepackage{showframe}
+
+
+
+
+
+%\usepackage[rsfs=newtxsf]{mathalfa}
+
+
+%\DeclareMathAlphabet{\mathbbm}{U}{bbm}{m}{n}
+
+
+
+
+%\DeclareMathVersion{sans}
+%\SetSymbolFont{operators}{sans}{OT1}{newtxsf}{m}{n}
+%\SetSymbolFont{letters}{sans}{OML}{newtxsf}{m}{it}
+%\SetSymbolFont{symbols}{sans}{OMS}{newtxsf}{m}{n}
+%\SetMathAlphabet{\mathit}{sans}{OT1}{newtxsf}{m}{sl}
+%\SetMathAlphabet{\mathbf}{sans}{OT1}{newtxsf}{bx}{n}
+%\SetMathAlphabet{\mathtt}{sans}{OT1}{newtxsf}{m}{n}
+%\SetSymbolFont{largesymbols}{sans}{OMX}{iwona}{m}{n}
+%
+%\DeclareMathVersion{boldsans}
+%\SetSymbolFont{operators}{boldsans}{OT1}{cmbr}{b}{n}
+%\SetSymbolFont{letters}{boldsans}{OML}{cmbrm}{b}{it}
+%\SetSymbolFont{symbols}{boldsans}{OMS}{cmbrs}{b}{n}
+%\SetMathAlphabet{\mathit}{boldsans}{OT1}{cmbr}{b}{sl}
+%\SetMathAlphabet{\mathbf}{boldsans}{OT1}{cmbr}{bx}{n}
+%\SetMathAlphabet{\mathtt}{boldsans}{OT1}{cmtl}{b}{n}
+%\SetSymbolFont{largesymbols}{boldsans}{OMX}{iwona}{bx}{n}
+%
+%\newif\IfInSansMode
+%\let\oldsf\sffamily
+%\renewcommand*{\sffamily}{\oldsf\mathversion{sans}\InSansModetrue}
+%\let\oldmd\mdseries
+%\renewcommand*{\mdseries}{\oldmd\IfInSansMode\mathversion{sans}\fi\relax}
+%\let\oldbf\bfseries
+%\renewcommand*{\bfseries}{\oldbf\IfInSansMode\mathversion{boldsans}\else%
+%   \mathversion{bold}\fi\relax}
+%\let\oldnorm\normalfont
+%\renewcommand*{\normalfont}{\oldnorm\InSansModefalse\mathversion{normal}}
+%\let\oldrm\rmfamily
+%\renewcommand*{\rmfamily}{\oldrm\InSansModefalse\mathversion{normal}}
+
+
+%\usepackage[newtxsf]{sfmath}
+
+%\usepackage[sfdefault,lining]{FiraSans} %% option 'sfdefault' activates Fira Sans as the default text font
+%\usepackage[fakebold]{firamath-otf}
+%\renewcommand*\oldstylenums[1]{{\firaoldstyle #1}}
+
+
+%\usepackage{sansmath}
+%\def\mySfFamily{\fontfamily{newtxsf}\selectfont\sffamily\sansmath}
+
+%
+%\title{\Huge
+%	   Análisis angular dependiente del tiempo para el canal %
+%	   \begingroup
+%       \Huge $\text{B}_{\text{s}}^{\text{0}} \bm{\rightarrow} \text{J/U}$
+%       %\raisebox{1.8mm}{$\text{\textpsi}$}
+%       $\text{K}^{\text{+}} \text{K}^{\text{--}}$ %
+%       \endgroup
+%       basado en \textsc{gpu} %
+%       y validación de incertidumbres sistemáticas}
+\title{\myTitle}
+\author{\myName}
+
+
+\usepackage{chngpage,calc}
+
+
+
+
+
+% Adjust sectional unit title fonts in ToC
+%\usepackage{tocloft}
+%\renewcommand{\cftchapfont}{\sffamily}
+%\renewcommand{\cftsecfont}{\sffamily}
+%\renewcommand{\cftsubsecfont}{\sffamily}
+
+%\usepackage{titletoc}
+%\contentsmargin[1cm]{0cm}
+%\titlecontents{chapter}[0em]{\vskip12pt\bfseries\sffamily}
+%{\thecontentslabel\enspace}
+%{\hspace{1.05em}}
+%{ \hfill\contentspage}[\vskip 6pt]
+
+
+
+%% Fix memoir bug with figure and table numbering
+\makeatletter
+\renewcommand{\counterwithin}{\@ifstar{\@csinstar}{\@csin}}
+\makeatother
+
+%% Change names of things...
+\renewcommand{\figurename}{Figura}%
+\renewcommand{\tablename}{Tabla}%
+\renewcommand{\partname}{Parte}%
+\renewcommand{\chaptername}{Capítulo}%
+\renewcommand{\bibname}{Referencias}%
+%\renewcommand{\refname}{Referencias}%
+\renewcommand{\contentsname}{Contenidos}%
+\renewcommand{\abstractname}{Abstract}
+\renewcommand{\listfigurename}{Lista de figuras}
+\renewcommand{\listtablename}{Lista de tablas}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 \begin{document}
 
 
-asdf
 
-\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												                               %
+% 								   FRONTMATTER                                 %
+%																			   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Introduction}
+% Folios in Roman numerals, unnumbered chapters.
+
+\frontmatter        
+  \pagenumbering{Roman}
+  \input{frontmatter/TitlepageUSC}
+  \cleardoublepage\input{frontmatter/Declaration}
+  \cleardoublepage\input{frontmatter/Autorization}
+  \cleardoublepage\input{frontmatter/Dedication}
+  \cleardoublepage\input{frontmatter/Abstract}
+  \cleardoublepage\input{frontmatter/Acknowledgments}
+  \cleardoublepage\tableofcontents  
+  \cleardoublepage\input{mainmatter/Chapter0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%																			   %
+% 								   MAINMATTER								   %
+%																			   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Folios in Arabic numerals, numbered chapters.
+
+\mainmatter       
+  \cleardoublepage\input{mainmatter/Chapter1}
+  \cleardoublepage\input{mainmatter/Chapter3}
+  \cleardoublepage\input{mainmatter/Chapter2}
+  \cleardoublepage\input{mainmatter/Chapter4}
+  \cleardoublepage\input{mainmatter/Chapter5}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%																			   %
+%                                    APPENDIX                                  %
+%																			   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Appendix
+
+%\appendix
+%\appendixpage
+%  \include{sections/appendixA}
+%  \include{sections/appendixB}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%																			   %
+%                                  BACKMATTER                                  %
+%																			   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Folios in Arabic numerals, unnumbered chapters.
+
+\backmatter
+  \cleardoublepage\printbibliography[title=Referencias]
+  \cleardoublepage\listoffigures     
+  \cleardoublepage\listoftables      
+  \cleardoublepage\input{backmatter/Colophon}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 \end{document}
