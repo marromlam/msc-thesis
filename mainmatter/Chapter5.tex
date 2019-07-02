@@ -205,7 +205,7 @@ Las tres fases se realizan simultáneamente, y se emplean tanto datos como MC de
 El actual algoritmo en uso para realizar este ajuste y obtener los coeficientes del spline de aceptancia está escrito en \texttt{C++} y corre sobre CPU, con un tiempo estimado de 30 minutos para ajustar las dos categorías de \textit{trigger} para 2015 y 2016. Para reducir el tiempo de ajuste y acelerar el análisis, se implementó este algoritmo en GPU, siendo capaz de correr en 6 minutos el mismo ajuste a las cuatro, ya mencionadas, muestras de datos.
 
 El conjunto de coeficientes obtenidos que modelan la aceptancia en el tiempo de desintegración del $\Bs$,
- se muestran en la Tabla \ref{tab:acctimebsdata}, y puede verse el gráfico de los ajustes en la Figura \ref{fig:acctimebsdata}. Además en las Figuras \ref{fig:acctimeother} pueden verse los ajustes a cada una de las muestras por separado, y también el cociente entre MC's, junto con las proyecciones de los splines correspondientes.
+ se muestran en la Tablas \ref{tab:acctimebsdataunbiased2016} y \ref{tab:acctimebsdatabiased2016}, y puede verse el gráfico de los ajustes en las Figuras \ref{fig:acctimebsdataunbiased2016} y \ref{fig:acctimebsdatabiased2016}. Además en las Figuras \ref{fig:acctimeotherbiased2016} y \ref{fig:acctimeotherunbiased2016} pueden verse los ajustes a cada una de las muestras por separado, y también el cociente entre MC's, junto con las proyecciones de los splines correspondientes.
 
 \begin{table}[H]
 \centering
@@ -257,7 +257,7 @@ $ c_8^{\phantom{B}}  $&$   2.343 \pm 0.090    $\\
 \end{tabular}
 
 \end{multicols}
-\caption{Valores de los coeficientes de los b--splines que modelan la aceptancia en el tiempo de desintegración para la categoría de trigger \texttt{biased2016}.} \label{tab:acctimebsdata}
+\caption{Valores de los coeficientes de los b--splines que modelan la aceptancia en el tiempo de desintegración para la categoría de trigger \texttt{biased2016}.} \label{tab:acctimebsdatabiased2016}
 \end{table}
 
 
@@ -311,7 +311,7 @@ $ c_8^{\phantom{B}} $&$   2.343 \pm 0.090    $\\
 \end{tabular}
 
 \end{multicols}
-\caption{Valores de los coeficientes de los b--splines que modelan la aceptancia en el tiempo de desintegración para la categoría de trigger \texttt{unbiased2016}.} \label{tab:acctimebsdata}
+\caption{Valores de los coeficientes de los b--splines que modelan la aceptancia en el tiempo de desintegración para la categoría de trigger \texttt{unbiased2016}.} \label{tab:acctimebsdataunbiased2016}
 \end{table}
 
 \todo[inline]{fix axes labels}
@@ -322,7 +322,7 @@ $ c_8^{\phantom{B}} $&$   2.343 \pm 0.090    $\\
 \centering
 \includegraphics[width=0.9\textwidth]{plots/decay_plots/unbiased2016/BdData_DecayTime_total}
 \includegraphics[width=0.9\textwidth]{plots/decay_plots/unbiased2016/BdData_Spline_total}
-\caption{Ajuste de la aceptancia en el tiempo de desintegración (arriba) y la función de aceptancia (abajo) para la categoría de trigger \texttt{unbiased2016}.}  \label{fig:acctimebsdata}
+\caption{Ajuste de la aceptancia en el tiempo de desintegración (arriba) y la función de aceptancia (abajo) para la categoría de trigger \texttt{unbiased2016}.}  \label{fig:acctimebsdataunbiased2016}
 \end{figure}
 \vspace*{\fill}
 \newpage
@@ -339,7 +339,7 @@ $ c_8^{\phantom{B}} $&$   2.343 \pm 0.090    $\\
 \includegraphics[width=\columnwidth]{plots/decay_plots/unbiased2016/BdData_Spline_single}
 \includegraphics[width=\columnwidth]{plots/decay_plots/unbiased2016/BdMC_Spline_ratio}
 \end{multicols}
-\caption{Ajustes de la aceptancia en el tiempo de desintegración (izquierda) y la función de aceptancia (derecha) para cada uno de las tres muestras y para el cociente entre MC de la categoría de trigger \texttt{unbiased2016}.}  \label{fig:acctimeother}
+\caption{Ajustes de la aceptancia en el tiempo de desintegración (izquierda) y la función de aceptancia (derecha) para cada uno de las tres muestras y para el cociente entre MC de la categoría de trigger \texttt{unbiased2016}.}  \label{fig:acctimeotherunbiased2016}
 \end{figure}
 
 
@@ -347,7 +347,7 @@ $ c_8^{\phantom{B}} $&$   2.343 \pm 0.090    $\\
 \centering
 \includegraphics[width=0.9\textwidth]{plots/decay_plots/biased2016/BdData_DecayTime_total}
 \includegraphics[width=0.9\textwidth]{plots/decay_plots/biased2016/BdData_Spline_total}
-\caption{Ajuste de la aceptancia en el tiempo de desintegración (arriba) y la función de aceptancia (abajo) para la categoría de trigger \texttt{biased2016}.}  \label{fig:acctimebsdata}
+\caption{Ajuste de la aceptancia en el tiempo de desintegración (arriba) y la función de aceptancia (abajo) para la categoría de trigger \texttt{biased2016}.}  \label{fig:acctimebsdatabiased2016}
 \end{figure}
 
 
@@ -363,7 +363,7 @@ $ c_8^{\phantom{B}} $&$   2.343 \pm 0.090    $\\
 \includegraphics[width=\columnwidth]{plots/decay_plots/biased2016/BdData_Spline_single}
 \includegraphics[width=\columnwidth]{plots/decay_plots/biased2016/BdMC_Spline_ratio}
 \end{multicols}
-\caption{Ajustes de la aceptancia en el tiempo de desintegración (izquierda) y la función de aceptancia (derecha) para cada uno de las tres muestras y para el cociente entre MC de la categoría de trigger \texttt{biased2016}.}  \label{fig:acctimeother}
+\caption{Ajustes de la aceptancia en el tiempo de desintegración (izquierda) y la función de aceptancia (derecha) para cada uno de las tres muestras y para el cociente entre MC de la categoría de trigger \texttt{biased2016}.}  \label{fig:acctimeotherbiased2016}
 \end{figure}
 
 
