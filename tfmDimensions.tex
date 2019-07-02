@@ -1,11 +1,20 @@
 
 %% Chorradas
 
+\newlength{\X}
+\newlength{\Y}
+\setlength{\Y}{240.0mm}
+\setlength{\X}{170.0mm}
+\newlength{\trimX}
+\newlength{\trimY}
+
 \makeatletter
 \@ifclasswith{memoir}{drafting}{%
 % 
 \stockaiv
-\settrims{20mm}{20mm}
+\setlength{\trimY}{28.5mm}
+\setlength{\trimX}{20.0mm}
+\settrims{\trimY}{\trimX}
 \setstocksize{297mm}{210mm}
 \settrimmedsize{240mm}{170mm}{*}
 %\settypeblocksize{671.6pt}{335.8pt}{*}
@@ -20,9 +29,10 @@
 \strictpagecheck
 }{%
 %
+\setlength{\trimY}{0.00mm}
+\setlength{\trimX}{0.00mm}
 \setstocksize{240mm}{170mm}
 \settrimmedsize{240mm}{170mm}{*}
-%\settrims{-10mm}{0mm}
 \setlrmarginsandblock{30mm}{20mm}{*} 
 \setulmarginsandblock{20mm}{25mm}{*}
 \checkandfixthelayout

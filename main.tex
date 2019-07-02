@@ -6,7 +6,7 @@
 
 \RequirePackage[english=spanish]{hyphsubst}
 \documentclass[a4paper, 10pt, 
-			   showtrims, drafting,
+			   %showtrims, drafting,
 			   %final,
 			   twoside, openright
 			  ]{memoir}
@@ -108,7 +108,36 @@
 \usepackage{chngpage,calc}
 
 
+\DeclareMathVersion{sans}
+\SetSymbolFont{operators}{sans}{OT1}{iwona}{m}{n}
+\SetSymbolFont{letters}{sans}{OML}{iwona}{m}{it}
+\SetSymbolFont{symbols}{sans}{OMS}{iwona}{m}{n}
+\SetMathAlphabet{\mathit}{sans}{OT1}{iwona}{m}{sl}
+\SetMathAlphabet{\mathbf}{sans}{OT1}{iwona}{bx}{n}
+\SetMathAlphabet{\mathtt}{sans}{OT1}{iwona}{m}{n}
+\SetSymbolFont{largesymbols}{sans}{OMX}{iwona}{m}{n}
 
+\DeclareMathVersion{boldsans}
+\SetSymbolFont{operators}{boldsans}{OT1}{v}{b}{n}
+\SetSymbolFont{letters}{boldsans}{OML}{iwona}{b}{it}
+\SetSymbolFont{symbols}{boldsans}{OMS}{iwona}{b}{n}
+\SetMathAlphabet{\mathit}{boldsans}{OT1}{iwona}{b}{sl}
+\SetMathAlphabet{\mathbf}{boldsans}{OT1}{iwona}{bx}{n}
+\SetMathAlphabet{\mathtt}{boldsans}{OT1}{iwona}{b}{n}
+\SetSymbolFont{largesymbols}{boldsans}{OMX}{iwona}{bx}{n}
+
+\newif\IfInSansMode
+\let\oldsf\sffamily
+\renewcommand*{\sffamily}{\oldsf\mathversion{sans}\InSansModetrue}
+\let\oldmd\mdseries
+\renewcommand*{\mdseries}{\oldmd\IfInSansMode\mathversion{sans}\fi\relax}
+\let\oldbf\bfseries
+\renewcommand*{\bfseries}{\oldbf\IfInSansMode\mathversion{boldsans}\else%
+   \mathversion{bold}\fi\relax}
+\let\oldnorm\normalfont
+\renewcommand*{\normalfont}{\oldnorm\InSansModefalse\mathversion{normal}}
+\let\oldrm\rmfamily
+\renewcommand*{\rmfamily}{\oldrm\InSansModefalse\mathversion{normal}}
 
 
 % Adjust sectional unit title fonts in ToC
@@ -183,11 +212,11 @@
 % Folios in Arabic numerals, numbered chapters.
 
 \mainmatter       
-  \cleardoublepage\input{mainmatter/Chapter1}
+  %\cleardoublepage\input{mainmatter/Chapter1}
   \cleardoublepage\input{mainmatter/Chapter3}
-  \cleardoublepage\input{mainmatter/Chapter2}
-  \cleardoublepage\input{mainmatter/Chapter4}
-  \cleardoublepage\input{mainmatter/Chapter5}
+  %\cleardoublepage\input{mainmatter/Chapter2}
+  %\cleardoublepage\input{mainmatter/Chapter4}
+  %\cleardoublepage\input{mainmatter/Chapter5}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

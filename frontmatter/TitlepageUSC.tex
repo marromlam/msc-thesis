@@ -13,8 +13,8 @@
 % Main cover
 \thispagestyle{empty}
 \begin{titlingpage}
-  \begin{tikzpicture}[remember picture, overlay]
-    \node[inner sep=0pt] at (current page.center) {%
+  \begin{tikzpicture}[overlay, remember picture]
+    \node[xshift = \trimX, yshift = \trimY] at (current page.center) {%
       \includegraphics[width=17cm]{cover/coverMain.pdf}%
       };
   \end{tikzpicture}
@@ -25,7 +25,7 @@
 \thispagestyle{empty}
 \begin{titlingpage}
   \begin{tikzpicture}[remember picture, overlay]
-    \node[inner sep=0pt] at (current page.center) {%
+    \node[xshift = \trimX, yshift = \trimY] at (current page.center) {%
       %\includegraphics[width=17cm]{cover/coverMain.pdf}%
       };
   \end{tikzpicture}
@@ -34,8 +34,8 @@
 % Master logos
 \thispagestyle{empty}
 \begin{titlingpage}
-  \begin{tikzpicture}[remember picture, overlay]
-    \node[inner sep=0pt] at (current page.center) {%
+  \begin{tikzpicture}[ overlay, remember picture]
+    \node[xshift = 1.25\trimX, yshift = \trimY] at (current page.center) {%
       \includegraphics[width=17cm]{cover/coverMaster}%
       };
   \end{tikzpicture}
@@ -45,7 +45,7 @@
 \thispagestyle{empty}
 \begin{titlingpage}
   \begin{tikzpicture}[remember picture, overlay]
-    \node[inner sep=0pt] at (current page.center) {%
+    \node[xshift = \trimX, yshift = \trimY] at (current page.center) {%
       %\includegraphics[width=17cm]{cover/coverMain.pdf}%
       };
   \end{tikzpicture}
