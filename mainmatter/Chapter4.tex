@@ -11,7 +11,7 @@
 
 La importancia de tener una muestra de datos simulados tiene diversos motivos. Primeramente, permite entrenar a las herramientas que después se usarán sobre datos reales, pero teniendo conocimiento completo del proceso estudiado. Por otra parte, el proceso de detección es preciso, pero no perfecto, lo que produce que aparezcan desviaciones en las distribuciones físicas. Para tener en cuenta estos efectos, y corregirlos, se emplean simulaciones completas de \lhcb del canal en concreto a estudiar: el \emph{full} Monte Carlo.
 
-En \lhcb la aplicación \color{dieg} encargada \color{norm} de llevar a cabo la generación y transporte de partículas a través del detector es \textsc{Gauss} \cite{Clemencic_2011}. Esta herramienta funciona en dos bloques separadamente que pueden ser operados en conjunto (véase Figura \ref{fig_gaussapp}):
+En \lhcb la aplicación \color{dieg} encargada \color{norm} de llevar a cabo la generación y transporte de partículas a través del detector es \textsc{Gauss} \cite{Clemencic_2011}. Esta herramienta funciona en dos bloques separadamente que pueden ser operados en conjunto (\emph{vid.} Figura \ref{fig_gaussapp}):
 \begin{itemize}
 	\item Generación de eventos: Las colisiones protón--protón son generadas usando \pythia \cite{sjostrand2015introduction}, con una configuración específica para \lhcb. Las desintegraciones de partículas son descritas con \eviltgen \cite{Lange:2001uf} y la radiación de las partículas en el estado final son generadas por \photos \cite{golonka2006photos}.
 	\item Simulación del detector: La interacción entre las partículas generadas con el detector, y la respuesta de este mismo, la describe \geant \cite{Agostinelli:2002hh}.

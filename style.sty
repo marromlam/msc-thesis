@@ -45,7 +45,7 @@
 }
 
 \RequirePackage[obeyspaces, spaces, hyphens]{url}      % Typesetting URLs
-\urlstyle{sf}
+\urlstyle{tt}
 
 
 %% Language
@@ -121,33 +121,44 @@
 
 %% Bibliography
 \RequirePackage{mathscinet}
+\usepackage{fontawesome}
 \RequirePackage[backend      = bibtex8,
+                language     = spanish,
 				bibencoding  = utf8
                 sortcites    = true,
-				sorting      = nyt,
+				sorting      = none,
                 giveninits   = true,
                 uniquename   = init,
                 doi          = false,
                 isbn         = false,
-                url          = false,
+                url          = true,
                 maxcitenames = 3,
 				backref      = true,
 				natbib       = true,
                 maxbibnames  = 3,
-                style        = numeric-comp]{biblatex}
+                style        = nature]{biblatex}
+\DeclareFieldFormat[article,book]{title}{\textit{#1}}
+\renewcommand{\mkbibnamefirst}[1]{\textsc{#1}}
+\renewcommand{\mkbibnamelast}[1]{\textsc{#1}}
+\renewcommand{\mkbibnameprefix}[1]{\textsc{#1}}
+\renewcommand{\mkbibnameaffix}[1]{\textsc{#1}}
 \renewcommand*{\nameyeardelim}{\addcomma\space}
-\DeclareNameAlias{sortname}{family-given}
-\DeclareNameAlias{default}{family-given}
-\DeclareFieldFormat[article]{volume}{\bibstring{jourvol}\addnbspace#1}
-\DeclareFieldFormat[article]{number}{\bibstring{number}\addnbspace#1}
-\renewbibmacro*{volume+number+eid}
-{
-    \printfield{volume}
-    \setunit{\addcomma\space}
-    \printfield{number}
-    \setunit{\addcomma\space}
-    \printfield{eid}
-}
+\renewcommand*{\labelnamepunct}{\space\textendash\space}
+\DeclareFieldFormat{url}{\mkbibacro{URL}\addcolon\space\href{#1}{\faExternalLink}}
+
+%\DeclareNameAlias{sortname}{family-given}
+%\DeclareNameAlias{default}{family-given}
+%\DeclareFieldFormat[article]{volume}{\bibstring{jourvol}\addnbspace#1}
+%\DeclareFieldFormat[article]{number}{\bibstring{number}\addnbspace#1}
+%\renewbibmacro*{volume+number+eid}
+%{
+%    \printfield{volume}
+%    \setunit{\addcomma\space}
+%    \printfield{number}
+%    \setunit{\addcomma\space}
+%    \printfield{eid}
+%}
+
 \addbibresource{backmatter/Bibliography.bib}
 
 
