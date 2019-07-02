@@ -18,9 +18,12 @@
 
 %% Fonts and typography
 \RequirePackage{mathpazo}             % Latin Modern newtxsf
-\renewcommand{\sfdefault}{FiraSans}   % Helvetica (phv)
+%\usepackage{lmodern}
+\renewcommand{\sfdefault}{phv}   % Helvetica (phv)
 \RequirePackage[scaled]{beramono}     % Bera Mono (Bitstream Vera Sans Mono)
-\RequirePackage[lf]{FiraSans}
+
+%\def\mySfFamily{\fontfamily{cmbr}\selectfont\sffamily\sansmath}
+%\RequirePackage{sansmathfonts}
 
 \RequirePackage[final]{microtype}   % Improved typography
 \RequirePackage{enumitem}           % Format lists
