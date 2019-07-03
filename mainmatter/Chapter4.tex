@@ -36,7 +36,7 @@ El GRID de \lhcb se compone de una red internacional de computadores conectados 
 
 
 
-\subsection{Modelo para $\Bs \rightarrow \Jpsi \antikaon\kaon$} %%%%%%%%
+\subsection[Modelo]{Actualización  del modelo $\Bs \rightarrow \text{J}/\bm{\psi} \antikaon\kaon$} %%%%%%%%
 \label{sec:Bs2JpsiKKmodel}
 
 En el marco concreto  de este trabajo se creó un nuevo modelo de \texttt{EvtGen}, para simular el canal $\Bs \rightarrow \Jpsi \antikaon\kaon$, con capacidad para crear y desintegrar las resonacias $\fzero$, $\fai$ y $\ftwop$, y \color{vero} generar también la interferencia entre ellas. \color{norm} 
@@ -106,16 +106,246 @@ En la Figura \ref{fig_evtgensamples2} puede observarse el espacio fásico en el 
 
 %%TODO wave -> onda
 
-\color{norm}
+\subsection{Comprobación de la simulación}
+
+
+
+\subsubsection{Modelo con ondas S y P}
+
+\begin{table}[H]
+\centering
+\begin{multicols}{2}
+\begin{tabular}{cc}
+\toprule
+Parámetro & Valor \\ \midrule
+$ DG          $&$ 0.0848 \pm 0.0026 $ \\
+$ GsmGd       $&$0.00093 \pm 0.00082$ \\
+$ DM          $&$ 17.6974 \pm 0.0023$ \\
+$ phisPlon    $&$ -0.0313 \pm 0.0022$ \\
+$ lamPlon     $&$ 0.9994 \pm 0.0015 $ \\
+$ fPlon       $&$0.51348 \pm 0.00095$ \\
+$ fPper       $&$ 0.2531 \pm 0.0012 $ \\
+$ dPpar       $&$ 3.2576 \pm 0.0084 $ \\
+$ dPper       $&$ 3.0794 \pm 0.0069 $ \\
+\bottomrule
+\end{tabular}
+\begin{tabular}{cc}
+\toprule
+Parámetro & Valor \\ \midrule
+$ FS_mKK1     $&$  0.482 \pm 0.011  $ \\
+$ FS_mKK2     $&$ 0.0515 \pm 0.0015 $ \\
+$ FS_mKK3     $&$ 0.0061 \pm 0.00026$ \\
+$ FS_mKK4     $&$0.00897 \pm 0.00038$ \\
+$ FS_mKK5     $&$ 0.0429 \pm 0.0013 $ \\
+$ FS_mKK6     $&$  0.1504 \pm 0.003 $ \\
+$ dSlon_mKK1  $&$  1.825 \pm 0.016  $ \\
+$ dSlon_mKK2  $&$  1.642 \pm 0.017  $ \\
+$ dSlon_mKK3  $&$   0.88 \pm 0.023  $ \\
+$ dSlon_mKK4  $&$  -0.356 \pm 0.02  $ \\
+$ dSlon_mKK5  $&$  -0.807 \pm 0.015 $ \\
+$ dSlon_mKK6  $&$  -0.925 \pm 0.011 $ \\
+\bottomrule
+\end{tabular}
+\end{multicols}
+  \caption{Valores obtenidos del ajuste a una muestra de un millón de eventos  de MC.}
+\end{table}
+
+%+---------------+--------------------+
+%| Fit Parameter | Value ± ParabError |
+%+---------------+--------------------+
+%| DG            |  0.0848 ± 0.0026   |
+%| GsmGd         | 0.00093 ± 0.00082  |
+%| DM            |  17.6974 ± 0.0023  |
+%| fPlon         | 0.51348 ± 0.00095  |
+%| fPper         |  0.2531 ± 0.0012   |
+%| FS_mKK1       |   0.482 ± 0.011    |
+%| FS_mKK2       |  0.0515 ± 0.0015   |
+%| FS_mKK3       |  0.0061 ± 0.00026  |
+%| FS_mKK4       | 0.00897 ± 0.00038  |
+%| FS_mKK5       |  0.0429 ± 0.0013   |
+%| FS_mKK6       |   0.1504 ± 0.003   |
+%| dPpar         |  3.2576 ± 0.0084   |
+%| dPper         |  3.0794 ± 0.0069   |
+%| dSlon_mKK1    |   1.825 ± 0.016    |
+%| dSlon_mKK2    |   1.642 ± 0.017    |
+%| dSlon_mKK3    |    0.88 ± 0.023    |
+%| dSlon_mKK4    |   -0.356 ± 0.02    |
+%| dSlon_mKK5    |   -0.807 ± 0.015   |
+%| dSlon_mKK6    |   -0.925 ± 0.011   |
+%| phisPlon      |  -0.0313 ± 0.0022  |
+%| lamPlon       |  0.9994 ± 0.0015   |
+%+---------------+--------------------+
+
+
+
+\subsubsection{Modelo con ondas S, P y D}
+
+Se escribió
+%, en parte para comprobar los resultados del MC de la \S \ref{sec:Bs2JpsiKKmodel}, 
+un programa capaz de ajustar muestras de datos con onda D. Esto incluye, evidentemente, ajustar un conjunto de parámetros más grande, y que en su máxima amplitud resulta en 76.
+
+El algoritmo, diseñado para correr en GPU, funciona correctamente y valida los parámetros impuestos al generador de las muestras de MC. Corriendo sobre una \textsc{nVidia GeForce GTX 1080 Ti}, se puede ajustar una muestra de $0.5$ millones de eventos, en aproximadamente $6$ minutos, incluyendo la carga de los datos, el tiempo de minimización, y la salida de los resultados (Tabla \ref{tab:fitDwaveparams}) y gráficas (Figuras \ref{fig:20190221c_mKK1} a \ref{fig:20190221c_mKK6}).
+
+
+
+
+
+
+
+
+
+
+
+\begin{table}[H]
+\centering
+\begin{multicols}{2}
+\begin{tabular}{cc}
+\toprule
+Parámetro & Valor \\ \midrule
+$DG        $&$ 0.0796 \pm 0.0035  $\\
+$GsmGd     $&$ 0.0005 \pm 0.0011  $\\
+$DM        $&$ 17.7054 \pm 0.0032 $\\
+$phisPlon  $&$ -0.0323 \pm 0.0032 $\\
+$lamPlon   $&$  0.9996 \pm 0.002  $\\
+$fPlon     $&$ 0.5116 \pm 0.0014  $\\
+$fPper     $&$ 0.2558 \pm 0.0018  $\\
+$fDlon     $&$   0.5 \pm 0.0003   $\\
+$fDper     $&$  0.2 \pm 0.00059   $\\
+$FS_mKK1   $&$0.01624 \pm 0.00072 $\\
+$FS_mKK2   $&$ 0.4253 \pm 0.0091  $\\
+$FS_mKK3   $&$   0.194 \pm 0.01   $\\
+$FS_mKK4   $&$  0.261 \pm 0.016   $\\
+$FS_mKK5   $&$  0.254 \pm 0.023   $\\
+$FS_mKK6   $&$  0.316 \pm 0.031   $\\
+$FD_mKK1   $&$0.000446 \pm 8.7e-05$\\
+$FD_mKK2   $&$  0.0414 \pm 0.003  $\\
+$FD_mKK3   $&$  0.631 \pm 0.011   $\\
+$FD_mKK4   $&$  0.314 \pm 0.013   $\\
+$FD_mKK5   $&$  0.184 \pm 0.014   $\\
+$FD_mKK6   $&$   0.15 \pm 0.017   $\\
+$dPpar     $&$   3.1 \pm 0.012    $\\
+$dPper     $&$  2.9271 \pm 0.009  $\\
+\bottomrule
+\end{tabular}
+\begin{tabular}{cc}
+\toprule
+Parámetro & Valor \\ \midrule
+$dSlon_mKK1$&$ 1e-05 \pm 0.00048  $\\
+$dSlon_mKK2$&$ 1e-05 \pm 0.00028  $\\
+$dSlon_mKK3$&$   0.0 \pm 0.0026   $\\
+$dSlon_mKK4$&$  -0.123 \pm 0.028  $\\
+$dSlon_mKK5$&$  -0.135 \pm 0.038  $\\
+$dSlon_mKK6$&$  -0.107 \pm 0.052  $\\
+$dDlon_mKK1$&$   -2.97 \pm 0.1    $\\
+$dDlon_mKK2$&$  -2.09 \pm 0.039   $\\
+$dDlon_mKK3$&$  -1.54 \pm 0.014   $\\
+$dDlon_mKK4$&$   -0.2 \pm 0.038   $\\
+$dDlon_mKK5$&$  -0.03 \pm 0.058   $\\
+$dDlon_mKK6$&$  0.064 \pm 0.097   $\\
+$dDper_mKK1$&$  -6.283 \pm 0.014  $\\
+$dDper_mKK2$&$ -6.2832 \pm 0.003  $\\
+$dDper_mKK3$&$  -0.766 \pm 0.035  $\\
+$dDper_mKK4$&$  0.503 \pm 0.063   $\\
+$dDper_mKK5$&$   1.07 \pm 0.12    $\\
+$dDper_mKK6$&$   0.58 \pm 0.19    $\\
+$dDpar_mKK1$&$   0.83 \pm 0.14    $\\
+$dDpar_mKK2$&$  1.707 \pm 0.061   $\\
+$dDpar_mKK3$&$   2.49 \pm 0.034   $\\
+$dDpar_mKK4$&$  -2.435 \pm 0.049  $\\
+$dDpar_mKK5$&$  -2.372 \pm 0.09   $\\
+$dDpar_mKK6$&$   -2.29 \pm 0.13   $\\
+\bottomrule
+\end{tabular}
+\end{multicols}
+  \caption{Valores obtenidos del ajuste a una muestra de un millón de eventos  de MC.} \label{tab:fitDwaveparams}
+\end{table}
+
+En las Figuras \ref{fig:20190221c_mKK1}--\ref{fig:20190221c_mKK6} pueden verse las gráficas de los ajustes para cada bin de masa de los definidos.
+
+\newpage
+
+\begin{figure}[H]
+\centering
+\begin{multicols}{2}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK1_CosK}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK1_Phi}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK1_CosMu}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK1_Time}
+\end{multicols}
+\vspace*{-0.5cm}
+\caption{Gráficos del ajuste con onda D para el bin $m_{\text{KK}1} = [1.0,1.2)$ GeV.}  \label{fig:20190221c_mKK1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{multicols}{2}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK2_CosK}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK2_Phi}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK2_CosMu}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK2_Time}
+\end{multicols}
+\vspace*{-0.5cm}
+\caption{Gráficos del ajuste con onda D para el bin $m_{\text{KK}2} = [1.2,1.4)$ GeV.}  
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{multicols}{2}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK3_CosK}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK3_Phi}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK3_CosMu}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK3_Time}
+\end{multicols}
+\vspace*{-0.5cm}
+\caption{Gráficos del ajuste con onda D para el bin $m_{\text{KK}3} = [1.4,1.6)$ GeV.}  
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{multicols}{2}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK4_CosK}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK4_Phi}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK4_CosMu}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK4_Time}
+\end{multicols}
+\vspace*{-0.5cm}
+\caption{Gráficos del ajuste con onda D para el bin $m_{\text{KK}4} = [1.6,1.8)$ GeV.}  
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{multicols}{2}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK5_CosK}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK5_Phi}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK5_CosMu}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK5_Time}
+\end{multicols}
+\vspace*{-0.5cm}
+\caption{Gráficos del ajuste con onda D para el bin $m_{\text{KK}5} = [1.8,2.0)$ GeV.}  
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{multicols}{2}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK6_CosK}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK6_Phi}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK6_CosMu}
+\includegraphics[width=\columnwidth]{plots/20190221c/20190221c_mKK6_Time}
+\end{multicols}
+\vspace*{-0.5cm}
+\caption{Gráficos del ajuste con onda D para el bin $m_{\text{KK}6} = [2.0,2.2)$ GeV.}  \label{fig:20190221c_mKK6}
+\end{figure}
+
+
+
+
 
 
 
 \section{Estimación por máxima verosimilitud}
 
-\color{new}
-Para extraer parámetros de conjuntos de datos, como las que se muestran en la Figura \ref{fig_evtgensamples1}, se emplean algoritmos de ajuste (\emph{fit}). Existen diversos métodos para poder minimizar un funcional respecto de una muestra y extraer los parámetros, entre ellos aquí se emplea el método de máxima verosimilitud.
 
-\color{norm}
+Para extraer parámetros de conjuntos de datos, como las que se muestran en la Figura \ref{fig_evtgensamples1}, se emplean algoritmos de ajuste (\emph{fit}). Existen diversos métodos para poder minimizar un funcional respecto de una muestra y extraer los parámetros, entre ellos aquí se emplea el método de máxima verosimilitud.
 
 El método de máxima verosimilitud \cite{cowan}, MLE, es una técnica para estimar los valores de parámetros \emph{verdaderos}, $\theta_k^0$, de una muestra finita de datos, $x_i$, dada. Si la medida se repite $N$ veces, entonces $x_i$ tendrá $N$ valores para la dimensión $i$ (pudiendo tener una variable más dimensiones).
 
