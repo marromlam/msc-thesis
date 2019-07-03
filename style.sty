@@ -17,11 +17,11 @@
 
 
 %% Fonts and typography
-\RequirePackage{mathpazo}             % Latin Modern newtxsf
+%\RequirePackage{mathpazo}             % Latin Modern newtxsf
 %\usepackage{lmodern}
 %\RequirePackage[light,condensed,math,lf]{iwona}
-\renewcommand{\sfdefault}{FiraSans}   % Helvetica (phv)
-\RequirePackage[scaled]{beramono}     % Bera Mono (Bitstream Vera Sans Mono)
+%\renewcommand{\sfdefault}{iwona}   % Helvetica (phv)
+%\RequirePackage[scaled]{beramono}     % Bera Mono (Bitstream Vera Sans Mono)
 
 %\def\mySfFamily{\fontfamily{cmbr}\selectfont\sffamily\sansmath}
 %\RequirePackage{sansmathfonts}
@@ -122,7 +122,7 @@
 
 %% Bibliography
 \RequirePackage{mathscinet}
-\usepackage{fontawesome}
+%\usepackage{fontawesome}
 \RequirePackage[backend      = bibtex8,
                 language     = spanish,
 				bibencoding  = utf8
@@ -145,7 +145,7 @@
 \renewcommand{\mkbibnameaffix}[1]{\textsc{#1}}
 \renewcommand*{\nameyeardelim}{\addcomma\space}
 \renewcommand*{\labelnamepunct}{\space\textendash\space}
-\DeclareFieldFormat{url}{\mkbibacro{URL}\addcolon\space\href{#1}{\faExternalLink}}
+%\DeclareFieldFormat{url}{\mkbibacro{URL}\addcolon\space\href{#1}{\faExternalLink}}
 
 %\DeclareNameAlias{sortname}{family-given}
 %\DeclareNameAlias{default}{family-given}
@@ -276,46 +276,5 @@
 
 %% Operators
 \newcommand{\diff}{\mathop{}\!\mathrm{d}}
-\DeclareMathOperator{\im}{im}
-\DeclareMathOperator{\rank}{rank}
-
-
-%% Delimiters
-\DeclarePairedDelimiter{\p}{\lparen}{\rparen}     % Parenthesis
-\DeclarePairedDelimiter{\set}{\lbrace}{\rbrace}   % Set
-\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}     % Absolute value
-\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}    % Norm
-\DeclarePairedDelimiter{\ip}{\langle}{\rangle}    % Inner product
-\DeclarePairedDelimiter{\sqb}{\lbrack}{\rbrack}   % Square brackets
-\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}    % Ceiling
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor} % Floor
-
-
-%% Blackboard bold
-\newcommand{\N}{\mathbb{N}}    % Natural numbers
-\newcommand{\Z}{\mathbb{Z}}    % Integers
-\newcommand{\Q}{\mathbb{Q}}    % Rational numbers
-\newcommand{\R}{\mathbb{R}}    % Real numbers
-\newcommand{\C}{\mathbb{C}}    % Complex numbers
-\newcommand{\A}{\mathbb{A}}    % Affine space
-\renewcommand{\P}{\mathbb{P}}  % Projective space
-
-
-%% Bold face
-\renewcommand{\a}{\mathbf{a}}
-\renewcommand{\b}{\mathbf{b}}
-\renewcommand{\c}{\mathbf{c}}
-\newcommand{\x}{\mathbf{x}}
-\newcommand{\y}{\mathbf{y}}
-\newcommand{\0}{\mathbf{0}}
-\newcommand{\1}{\mathbf{1}}
-
-
-%% Miscellaneous
-\newcommand{\ie}{\leavevmode\unskip, i.e.,\xspace}
-\newcommand{\eg}{\leavevmode\unskip, e.g.,\xspace}
-\newcommand{\dash}{\textthreequartersemdash\xspace}
-\newcommand{\matlab}{\textsc{Matlab}\xspace}
-
 
 \endinput

@@ -4,7 +4,7 @@
 %																			   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\RequirePackage[english=spanish]{hyphsubst}
+%\RequirePackage[english=spanish]{hyphsubst}
 \documentclass[a4paper, 10pt, 
 			   %showtrims, drafting,
 			   final,
@@ -13,12 +13,62 @@
 
 \newcommand\hmmax{0}
 \newcommand\bmmax{0}
+\usepackage{sansmath}
+
+\usepackage{polyglossia}
+\setmainlanguage{spanish}
+\setotherlanguage[variant=polytonic]{greek}
+\setotherlanguage{english}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}%,Scale=MatchLowercase}
+
+
+%\usepackage{libertine}
+\usepackage{mathpazo}             % Latin Modern newtxsf
+%\usepackage{lmodern}
+%\RequirePackage[light,condensed,math,lf]{iwona}
+%\renewcommand{\sfdefault}{Fira Sans}   % Helvetica (phv)
+
+\usepackage[scaled]{beramono} 
+
+%\fontspec{Palatino}
+%\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+%\setmainfont{Palatino}
+
+%\setsansfont{Fira Sans}
+
+%% Select Sans Font Family
+%\setsansfont[BoldFont={* Medium}]{Helvetica Neue}
+\setsansfont[BoldFont={* Medium}]{Fira Sans}
+
+
+%\renewcommand\bfdefault{sb}
+%\renewcommand{\bfdefault}{sb}
+%\DeclareFontShape{\encodingdefault}{\rmdefault}{sb}{n}
+%    {<->ssub*\rmdefault/bx/n}{}
+%\DeclareFontShape{\encodingdefault}{\rmdefault}{sb}{sl}
+%    {<->ssub*\rmdefault/bx/sl}{}
+
+%\setsansfont{Fira Sans}
+%\usepackage{libertine}
+%\usepackage{mathpazo}
 
 % Load style
 \usepackage{style}  
 
 % Document data
 \input{tfmData}
+
+
+
+
+
+
+%\newfontfamily{\greekfont}[Ligatures=TeX]{Old Standard}
+
+
+
 
 % Document dimensions
 \input{tfmDimensions}
@@ -104,9 +154,9 @@
 \author{\myName}
 
 
-\usepackage{chngpage,calc}
-
-
+%\usepackage{chngpage,calc}
+%
+%
 \DeclareMathVersion{sans}
 \SetSymbolFont{operators}{sans}{OT1}{iwona}{m}{n}
 \SetSymbolFont{letters}{sans}{OML}{iwona}{m}{it}
@@ -117,9 +167,9 @@
 \SetSymbolFont{largesymbols}{sans}{OMX}{iwona}{m}{n}
 
 \DeclareMathVersion{boldsans}
-\SetSymbolFont{operators}{boldsans}{OT1}{v}{b}{n}
+\SetSymbolFont{operators}{boldsans}{OT1}{iwona}{b}{n}
 \SetSymbolFont{letters}{boldsans}{OML}{iwona}{b}{it}
-\SetSymbolFont{symbols}{boldsans}{OMS}{iwona}{b}{n}
+\SetSymbolFont{symbols}{boldsans}{OMS}{iwona}{bx}{n}
 \SetMathAlphabet{\mathit}{boldsans}{OT1}{iwona}{b}{sl}
 \SetMathAlphabet{\mathbf}{boldsans}{OT1}{iwona}{bx}{n}
 \SetMathAlphabet{\mathtt}{boldsans}{OT1}{iwona}{b}{n}
@@ -137,7 +187,7 @@
 \renewcommand*{\normalfont}{\oldnorm\InSansModefalse\mathversion{normal}}
 \let\oldrm\rmfamily
 \renewcommand*{\rmfamily}{\oldrm\InSansModefalse\mathversion{normal}}
-
+%
 
 % Adjust sectional unit title fonts in ToC
 %\usepackage{tocloft}
@@ -171,11 +221,21 @@
 \renewcommand{\listfigurename}{Lista de figuras}
 \renewcommand{\listtablename}{Lista de tablas}
 
+%% Embed fonts
+%\pdfinclusioncopyfonts 1
+%\usepackage{psfrag}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\DeclareMathAlphabet      {\mathbf}{OT1}{cmr}{bx}{n}
-%\DeclareMathAlphabet      {\mathsf}{OT1}{cmss}{m}{n}
-%\DeclareMathAlphabet      {\mathit}{OT1}{cmr}{m}{it}
-%\DeclareMathAlphabet      {\mathtt}{OT1}{cmtt}{m}{n}
+
+
+
+
+
+
+
+
+
+
 
 
 \begin{document}
