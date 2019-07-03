@@ -36,10 +36,10 @@ El GRID de \lhcb se compone de una red internacional de computadores conectados 
 
 
 
-\subsection{Modelo para $\Bs \rightarrow \Jpsi \kaon \antikaon$} %%%%%%%%
+\subsection{Modelo para $\Bs \rightarrow \Jpsi \antikaon\kaon$} %%%%%%%%
 \label{sec:Bs2JpsiKKmodel}
 
-En el marco concreto de este trabajo se creó un nuevo modelo de \texttt{EvtGen}, para simular el canal $\Bs \rightarrow \Jpsi \kaon \antikaon$, con capacidad para crear y desintegrar las resonacias $\fzero$, $\fai$ y $\ftwop$, y \color{vero} generar también la interferencia entre ellas. \color{norm} 
+En el marco concreto  de este trabajo se creó un nuevo modelo de \texttt{EvtGen}, para simular el canal $\Bs \rightarrow \Jpsi \antikaon\kaon$, con capacidad para crear y desintegrar las resonacias $\fzero$, $\fai$ y $\ftwop$, y \color{vero} generar también la interferencia entre ellas. \color{norm} 
 
 El modelo debe incorporar las distribuciones angulares de la \S \ref{sec_angdist}, la evolución temporal de la \S \ref{sec_tempdist}, y las distribuciones de masa para las partículas de ondas S (no resonante), S ($\fzero$), P($\fai$) y D($\ftwop$), que aparecen en \S \ref{sec_diffrate}.  Todas estas funciones se escriben en \texttt{C++}, y se adecúan para ser integradas en el software de \lhcb, \textsc{Gauss}. Para poder interaccionar con el modelo, se compone también un \texttt{DecFile}, en el cual se escribe la lista de parámetros que constituyen la entrada al simulador.
 
@@ -86,9 +86,9 @@ En la \S \ref{sec_diffrate}, se calcula la tasa de decaimiento diferencial respe
 \[p_{\mu} = (p_0, \vec{p}) = (Ec^{-1},\vec{p})\]
 de modo que es sencillo calcular la masa, empleando la \emph{pseudo}norma del vector de Lorentz
 \[p^{\mu}p_{\mu} = \frac{E^2}{c^2} - |\vec{p}|^2 = m^2c^2. \]
-Entonces, para el espectro de masa $\kaon\antikaon$, se suman las componentes los momentos de los dos kaones calculándose la masa con el cuadrivector suma; análogamente para el $\Jpsi\kaon$, se suman las del $\kaon$ y de los muones.
+Entonces, para el espectro de masa $\antikaon\kaon$, se suman las componentes los momentos de los dos kaones calculándose la masa con el cuadrivector suma; análogamente para el $\Jpsi\kaon$, se suman las del $\kaon$ y de los muones.
 
-En la Figura \ref{fig_evtgensamples2} puede observarse el espacio fásico en el Dalitz \textit{plot} que representa $M_{\Jpsi\kaon}$ \emph{vs.} $M_{\kaon \antikaon}$, y donde se aprecian las diferentes contribuciones que fueron implementadas.
+En la Figura \ref{fig_evtgensamples2} puede observarse el espacio fásico en el Dalitz \textit{plot} que representa $M_{\Jpsi\kaon}$ \emph{vs.} $M_{\antikaon\kaon}$, y donde se aprecian las diferentes contribuciones que fueron implementadas.
 
 
 
