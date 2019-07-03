@@ -10,11 +10,12 @@
 
 En términos generales, cabe señalar unas ideas generales a tener en cuenta a la hora de medir la fase electrodébil $\phis$:
 \begin{itemize}
+    \item El rango de tempo de decaimiento es $t\in[0.3,15]$ ps. La cota inferior suprime mucho fondo combinatorio, mientras que la cota superior es debida a que ya no hay casi eventos a partir de $15$ ps.
   \item Se ajusta el valor $\Gamma_s - \Gamma_d$, debido a que puede ser medido independientemente del valor de $\Gamma_d$, resolviéndose mejor que si se ajustase $\Gamma_s$ directamente.
   \item Se asume que no hay dependencia entre los ratios \textit{penguin}--árbol, tomando por tanto un único $\lambda$ para todas las polarizaciones.
-  \item El rango de masa del ajuste está limitado a la región de $m_{\text{KK}} = [990,1050]$ MeV, y subdividida en seis bines de masa.
-  \item No se tendrá en cuenta el $D$ wave en este análisis. El conjunte de factores $C_{SP}$ empleado es $$ C_{\text{SP}}  = \{0.8463,0.8756,0.8478,0.8833,0.9415,0.9756\}.$$
-  \item Al tratar con \emph{full} MC o datos, cada evento $i$ está pesado con una ponderación de señal, $w_i$, obtenida mediante el método ${}_s$\textit{Plot}. De este modo se elimina el ruido y solo se modela la señal. La verosimilitud en cada muestra se escala por un factor $\frac{\sum w_i}{\sum w_i^2}$, para tener en cuenta los pesos en las incertidumbres de los parámetros.
+  \item El rango de masa del ajuste está limitado a la región de masa $m_{\text{KK}} = [990,1050]$ MeV alrededor de la resonancia del $\fai$ y dominada por ella, que se subdividide en seis bines de masa.
+  \item No se tendrá en cuenta el $D$ wave en este análisis, porque es despreciable en este análisis, al ser su contribución a ala ventana de masa muy pequeña. El conjunte de factores $C_{SP}$ empleado es $$ C_{\text{SP}}  = \{0.8463,0.8756,0.8478,0.8833,0.9415,0.9756\}.$$
+  \item Al tratar con \emph{full} MC o datos, cada evento $i$ está pesado con una ponderación de señal, $w_i$, obtenida mediante el método ${}_s$\textit{Plot}. De este modo se elimina el ruido y solo se modela la señal. La verosimilitud en cada muestra se escala por un factor $w_i \,\frac{\sum w_i}{\sum w_i^2}$, para tener en cuenta los pesos en las incertidumbres de los parámetros.
 \end{itemize}
 
 
@@ -122,11 +123,13 @@ En términos generales, cabe señalar unas ideas generales a tener en cuenta a l
 
 \section{Determinación de la aceptancia en el tiempo de desintegración}
 
+La eficiencia de reconstrucción no es constante como función de la vida media del $\Bs$ debido a dos factores: los requerimientos de desplazamiento hechos en las trazas de señal en el \emph{trigger} y la selección de eventos; y a la propia eficiencia de reconstrucción de las trazas en el VELO CITAR 24. La aceptancia en el tiempo de desintegración es determinada usando el canal de control $B_d \rightarrow \Jpsi \text{K}{}^{*0}(892)(\rightarrow \antikaon \uppi^-)$, que es cinemáticamente muy similar a la señal y se asume que tiene una distribución de decaimiento puramente exponencial, se desprecia la anchura $\Delta \Gamma _d$ con una vida media muy bien conocida. \cite{paperPhis}
+
 Se define la aceptancia en el tiempo de desintegración, $ \epsilon_{\text{data}}^{\Bs} $, como
 \begin{equation}
   \epsilon_{\text{data}}^{\Bs} = \epsilon_{\text{data}}^{\text{B}{}_{\text{d}}^0} \times  \frac{\epsilon_{\text{MC}}^{\text{B}{}_{\text{s}}^0}}{\epsilon_{\text{MC}}^{\text{B}{}_{\text{d}}^0}}
 \end{equation}
-donde $\epsilon_{\text{data}}^{\text{B}{}_{\text{d}}^0}$ es la eficiencia para los eventos totalmente \textit{triggered}, seleccionados y s--pesados en el canal de control $\text{B}{}_{\text{d}}^0$; y $r(t) = \sfrac{\epsilon_{\text{MC}}^{\text{B}{}_{\text{s}}^0}}{\epsilon_{\text{MC}}^{\text{B}{}_{\text{d}}^0}}$ el cociente de las eficiencias entre los MC, que toma en cuenta las pequeñas diferencias entre la vida media y cinemática entre los modos de señal y control.
+donde $\epsilon_{\text{data}}^{\text{B}{}_{\text{d}}^0}$ es la eficiencia para los eventos totalmente \textit{triggered}, seleccionados y s--ponderados en el canal de control $\text{B}{}_{\text{d}}^0$; y $r(t) = \sfrac{\epsilon_{\text{MC}}^{\text{B}{}_{\text{s}}^0}}{\epsilon_{\text{MC}}^{\text{B}{}_{\text{d}}^0}}$ el cociente de las eficiencias entre los MC. De este modo, el cociente entre MC toma en cuenta las pequeñas diferencias entre la vida media y cinemática entre los modos de señal y control entre los dos MC, mientras que los datos de $B_d$ corrigen las diferencias entre los MC y los datos de $\Bs$.
 
 La línea de trabajo consiste en hacer un ajuste simultáneo a las tres muestras de datos de forma que se pueda derivar $\epsilon_{\text{data}}^{\Bs} $, siendo de este modo posible conseguir una correcta estimación de las incertidumbres en los coeficientes de la aceptancia. Esta aceptancia es después usada para obtener los parámetros físicos de la desintegración del $\Bs$.
 
@@ -140,7 +143,7 @@ un conjunto de nudos exponencialmente distribuidos, teniendo por lo tanto seis b
 \end{itemize}
 
 
-A la hora modelar la resolución, se emplea una gaussiana de media cero y desviación típica $\sigma$. Después de los estudios de resolución temporal, los valores obtenidos para $\sigma$ de cada conjunto de datos son los mostrados el la Tabla \ref{tab_dectimeacc}.
+A la hora modelar la resolución del detector del tiempo de desintegración, se emplea una gaussiana de media cero y desviación típica $\sigma$. Después de los estudios de resolución temporal, los valores obtenidos para $\sigma$ de cada conjunto de datos son los mostrados el la Tabla \ref{tab_dectimeacc}.
 Para cada muestra, tanto de datos como de MC, el modelo usado para el ajuste está compuesto de una distribución exponencial de una cola convolucionada con una gaussiana simple de resolución, multiplicada por la función de aceptancia, i.e., los b--splines.
 
 \begin{table}[H]
@@ -151,7 +154,7 @@ $\sigma$ (ps) & $41.7$ & $38.64$ & $42.44$ \\
 $\Gamma \, \mathrm{(ps^{-1})}$ & $0.6613701$ & $0.65833$ & $0.65789$ \\
 \bottomrule
 \end{tabular}  
-\caption{Valores de la resolución y vida media para cada muestra.} \label{tab_dectimeacc}
+\caption{Valores de la resolución y vida media para cada muestra \cite{amhis2017averages}.} \label{tab_dectimeacc}
 \end{table} 
 
 
@@ -190,16 +193,16 @@ De este modo solo resta multiplicar el spline, $s$, siendo la función \textit{p
 \begin{equation}
  f(t;\Gamma,\sigma,\beta_i) =  (E * G) \times (\beta_0 + \beta_1 t + \beta_2 t^2 + \beta_3 t^3)
 \end{equation}
-cuya integral es también analítica y puede calcularse con un sistema CAS. A la hora de ajustar los parámetros $\beta_i$, estos deben ser obtenidos mediante una traducción entre ellos y el conjunto $b$, tomando en consideración el valor de $t$, puesto que son dependientes del bin.
+cuya integral es también analítica y puede calcularse con un sistema CAS. A la hora de ajustar los parámetros $\beta_i$, estos deben ser obtenidos mediante una transformación entre ellos y el conjunto $b$, tomando en consideración el valor de $t$, puesto que son dependientes del bin.
 
-En aras de obtener la aceptancia en el tiempo, $s_{\text{data}}^{\Bs} $, se realiza un ajuste simultáneo a las tres muestras y que opera en tres pasos:
+En aras de obtener la aceptancia en el tiempo, $s_{\text{data}}^{\Bs} $, se realiza un ajuste simultáneo a las tres muestras y que consta de tres pasos:
 \begin{itemize}
   \item Se ajusta $(E*G) \times s_{\text{MC}}^{\Bs}$  con la muestra de $\Bs$ MC, de modo que se obtienen los coeficientes, $b_i$, del spline $s_{\text{MC}}^{\Bs} $.
   \item Se ajusta $(E*G) \times s_{\text{MC}}^{\Bs} \times s_{\text{MC}}^{\mathrm{B_d^0}/\Bs} $ con los datos de la muestra $\mathrm{B_d^0}$ tomando por fijos los parámetros del spline $s_{\text{MC}}^{\Bs} $ del paso previo y obteniendo los coeficientes $r_i$.
   \item Finalmente, $(E*G) \times s_{\text{MC}}^{\mathrm{B_d^0}/\Bs} \times s_{\text{data}}^{\Bs} $ se ajusta con la muestra de datos $\mathrm{B_d^0}$, se toma el spline $s_{\text{MC}}^{\mathrm{B_d^0}/\Bs} $ del paso anterior y se obtiene el conjunto de coeficientes $c_i$.
 \end{itemize}
 %
-Las tres fases se realizan simultáneamente, y se emplean tanto datos como MC de 2016 en la categorías de trigger \texttt{biased} y \texttt{unbiased}.
+Las tres fases se realizan simultáneamente, y se emplean tanto datos como MC de 2016 en la categorías de trigger \texttt{biased} y \texttt{unbiased} (\textit{vid.} \S \ref{sec_hltrigger}).
 
 
 El actual algoritmo en uso para realizar este ajuste y obtener los coeficientes del spline de aceptancia está escrito en \texttt{C++} y corre sobre CPU, con un tiempo estimado de 30 minutos para ajustar las dos categorías de \textit{trigger} para 2015 y 2016. Para reducir el tiempo de ajuste y acelerar el análisis, se implementó este algoritmo en GPU, siendo capaz de correr en 6 minutos el mismo ajuste a las cuatro, ya mencionadas, muestras de datos.
@@ -339,7 +342,7 @@ $ c_8^{\phantom{B}} $&$   2.343 \pm 0.090    $\\
 \includegraphics[width=\columnwidth]{plots/decay_plots/unbiased2016/BdData_Spline_single}
 \includegraphics[width=\columnwidth]{plots/decay_plots/unbiased2016/BdMC_Spline_ratio}
 \end{multicols}
-\caption{Ajustes de la aceptancia en el tiempo de desintegración (izquierda) y la función de aceptancia (derecha) para cada uno de las tres muestras y para el cociente entre MC de la categoría de trigger \texttt{unbiased2016}.}  \label{fig:acctimeotherunbiased2016}
+\caption{Ajustes de la aceptancia en el tiempo de desintegración (izquierda) y la función de aceptancia (derecha) para cada una de las tres muestras y para el cociente entre MC de la categoría de trigger \texttt{unbiased2016}.}  \label{fig:acctimeotherunbiased2016}
 \end{figure}
 
 
@@ -436,7 +439,7 @@ $ dSlon_mKK6  $&$  -0.925 \pm 0.011 $ \\
 
 \subsection{Escáner de parámetros}
 
-Es conocido que los algoritmos de minimización basados en gradiente, como es el caso de \textsc{Minuit}, pueden devolver un mínimo local si la función es complicada. Aunque nunca hay una seguridad absoluta, si se practican escáneres de parámetros en un rango amplio alrededor del valor nominal del ajuste, podrían observarse mínimos adyacentes, y de ese modo corroborar que el nominal es el menor de los más próximos.
+Es conocido que los algoritmos de minimización basados en gradiente, como es el caso de \textsc{Minuit}, pueden devolver un mínimo local. Para estudiar el perfil de la verosimilitud se practican escáneres de parámetros en un rango amplio alrededor del valor nominal del ajuste, podrían observarse mínimos adyacentes, y de ese modo corroborar que el nominal es el menor de los más próximos.
 
 Se llevan a cabo escáneres de todos los parámetros involucrados en el ajuste, como pueden verse en las Figuras \ref{fig:scansmc}. Todos ellos resultaron apoyar que el mínimo nominal devuelto por \textsc{Minuit} era el menor, viendo por tanto que estamos en el máximo de la verosimilitud.
 
@@ -444,7 +447,7 @@ Se llevan a cabo escáneres de todos los parámetros involucrados en el ajuste, 
 
 Se escribió, en parte para comprobar los resultados del MC de la \S \ref{sec:Bs2JpsiKKmodel}, un programa capaz de ajustar muestras de datos con onda D. Esto incluye, evidentemente, ajustar un conjunto de parámetros más grande, y que en su máxima amplitud resulta en 76 CHECK.
 
-El algoritmo, diseñado para correr en GPU, funciona correctamente y valida los parámetros impuestos al generador de las muestras de MC. Corriendo sobre una \textsc{nVidia GeForce GTX 1080 Ti}, se puede ajustar una muestra de $0.5$ millones de eventos, en aproximadamente $6$ minutos, incluyendo la carga de los datos, el tiempo de minimización, y la salida de los resultados y gráficas.
+El algoritmo, diseñado para correr en GPU, funciona correctamente y valida los parámetros impuestos al generador de las muestras de MC. Corriendo sobre una \textsc{nVidia GeForce GTX 1080 Ti}, se puede ajustar una muestra de $0.5$ millones de eventos, en aproximadamente $6$ minutos, incluyendo la carga de los datos, el tiempo de minimización, y la salida de los resultados (Tabla \ref{tab:fitDwaveparams}) y gráficas (Figuras \ref{fig:20190221c_mKK1} a \ref{fig:20190221c_mKK6}).
 
 
 
@@ -517,7 +520,7 @@ $dDpar_mKK6$&$   -2.29 \pm 0.13   $\\
 \bottomrule
 \end{tabular}
 \end{multicols}
-  \caption{Valores obtenidos del ajuste a una muestra de un millón de eventos  de MC.}
+  \caption{Valores obtenidos del ajuste a una muestra de un millón de eventos  de MC.} \label{tab:fitDwaveparams}
 \end{table}
 
 En las Figuras \ref{fig:20190221c_mKK1}--\ref{fig:20190221c_mKK6} pueden verse las gráficas de los ajustes para cada bin de masa de los definidos.
@@ -605,10 +608,11 @@ En las Figuras \ref{fig:20190221c_mKK1}--\ref{fig:20190221c_mKK6} pueden verse l
 \section{Estudio de sistemáticos}
 
 \subsection{Bias del ajuste}
+\label{sec:fitbias}
 
 El algoritmo empleado para ajustar los datos al modelo de distribución angular que desacopla las amplitudes de polarización y permite obtener los valores de $\phis$, así como $\Delta \Gamma$ y $\Gamma_{\text{s}} - \Gamma_{\text{d}}$, presenta, como sucede en todos los casos, un bias intrínseco y que da lugar a una incertidumbre sistemática en los parámetros.
 
-Para estimar este bias se hacen $10^4$ realizaciones de $107628$ eventos cada una, por ser esta la señal efectiva real en 2015 y 2016. Para ello se toman como parámetros para la simulación los resultados del ajuste nominal \cite{paperPhis}, empleando como generador el mismo modelo respecto del cual serán ajustados. En esta primera versión del generador no se incluyen fenómenos de aceptancia temporal ni angular, solo estaría incluida la distribución angular.
+Para estimar este bias se hacen $10^4$ realizaciones de $107628$ eventos cada una, por ser esta la señal efectiva real en 2015 y 2016. Para ello se toman como parámetros para la simulación los resultados del ajuste nominal \cite{paperPhis}, empleando como generador el mismo modelo respecto del cual serán ajustados. En esta primera versión del generador no se incluyen fenómenos de aceptancia temporal ni angular, solo estaría incluida la distribución angular y del tiempo.
 %TODO mirar pulls
 
 Los \textit{pulls} 
@@ -672,7 +676,7 @@ Una vez realizadas las tres consideraciones, se toma la desviación máxima como
 
 %TODO. toy mirar palabors
 El uso del previo método surge del coste computacional de realizar toy MC y observar cómo afecta el cambio de factores $C_{\text{SP}}$ al resto de parámetros. Ello introduce de por sí fluctuaciones debidas a las propias alternativas que son difíciles de conocer, y más si cabe al solo hacerse una realización de cada caso. Una vez construido un generador de MC, sin embargo, pueden ajustarse las realizaciones y comprobar el efecto en los parámetros.
-Existen varias formas de calcular los factores $C_{\text{SP}}$, y es ahí donde puede radicar la incertidumbre. Las simulaciones de \S REF toman unos factores, como entrada; y ahora se ajustarán los datos con un conjunto de factores distinto:
+Existen varias formas de calcular los factores $C_{\text{SP}}$, y es ahí donde puede radicar la incertidumbre. Las simulaciones de \S \ref{sec:fitbias} toman unos factores, como entrada; y ahora se ajustarán los datos con un conjunto de factores distinto:
 \[C_{\text{SP}} = \{0.8672, 0.9281, 0.9055, 0.9485, 0.9734, 0.9840 \}.\]
 De este modo, se estudiarán las distribuciones de \textit{pulls} y residuos que aparecen respecto de los valores del generador MC. Se asigna como incertidumbre sistemática el valor medio de los obtenido de los residuos, como puede verse en la Tabla \ref{tab:residcsp}.
 
@@ -722,17 +726,6 @@ $\lambda_0$ &  $0.000033 \pm 0.000041$ &  $0.004131 \pm 0.000029$ & $ 0.000053 $
 
 
 
-\section{Conclusiones}
-
-Se ha presentado un marco de trabajo basado en la paralelización en GPU para realizar un análisis de la distribución angular de los productos de desintegración del canal $\Bs \rightarrow \Jpsi \kaon \antikaon$. En general, el código está escrito centrándose en la región de masa del $\fai(1020)$. 
-
-En la parte de simulación, se terminó el desarrollo de un código para \textsc{EvtGen}, y se corrigieron los errores que este presentaba. Dicho código, permitirá generar \emph{full} MC para el análisis completo de los datos del Run II (2015--2018). Como se mencionaba en secciones previas, el programa contiene una descomposición en amplitudes de polarización que incluye onda S no--resonante y resonante, onda P y onda D, lo que ayudará también a análisis $\Bs \rightarrow \Jpsi \kaon \antikaon$ en regiones altas de masa, donde predomina la onda D.
-Siguiendo esta línea, también se escribió un código para GPU que genera \emph{toy} MC, y que permite generar las distribuciones angulares con el mismo código que se ajustan los datos reales. Este código ha permitido la validación de incertidumbres sistemáticas tanto del bias intrínseco del ajuste como de los factores $C_{\text{SP}}$.
-
-Por otra parte, se muestran los resultados obtenidos con otros dos códigos, ambos por máxima verosimilitud y escritos para GPU: el ajuste a la aceptancia en el tiempo de desintegración y el ajuste a la distribución angular. Con el primero de ellos se logra mejorar el tiempo de cálculo del código que se viene usando hasta ahora, lo que en un futuro con mayor cantidad de datos, cobrará gran valor. Con el segundo se añade la funcionalidad de ajustar también onda D, generalizando por tanto el código para una más amplia región de masa.
-
- 
-En líneas generales, se sienta la base para hacer un futuro análisis completo del Run II de \lhcb (años 2015 a 2018), que resultará en la más precisa media de los parámetros de violación CP del $\Bs$.
 
 
 
