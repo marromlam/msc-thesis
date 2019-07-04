@@ -15,7 +15,7 @@
 \begin{titlingpage}
   \begin{tikzpicture}[overlay, remember picture]
     \node[xshift = \trimX, yshift = \trimY] at (current page.center) {%
-      \includegraphics[width=17cm]{cover/coverMain.pdf}%
+      \includegraphics[width=17cm]{cover/coverOuter.pdf}%
       };
   \end{tikzpicture}
 \end{titlingpage}
@@ -26,7 +26,7 @@
 \begin{titlingpage}
   \begin{tikzpicture}[remember picture, overlay]
     \node[xshift = \trimX, yshift = \trimY] at (current page.center) {%
-      %\includegraphics[width=17cm]{cover/coverMain.pdf}%
+      \includegraphics[width=17cm]{cover/coverDirty.pdf}%
       };
   \end{tikzpicture}
 \end{titlingpage}
@@ -46,8 +46,43 @@
 \begin{titlingpage}
   \begin{tikzpicture}[remember picture, overlay]
     \node[xshift = \trimX, yshift = \trimY] at (current page.center) {%
-      %\includegraphics[width=17cm]{cover/coverMain.pdf}%
+      \includegraphics[width=17cm]{cover/coverInner.pdf}%
       };
   \end{tikzpicture}
+  \newpage
+\thispagestyle{empty}
+
+\hfill
+
+\vfill
+
+\noindent\myName,\\ "{\myTitle}" \\%\myDegree
+Máster en Matemática Industrial
+%\textcopyright\ \myTime
+
+\bigskip
+
+\noindent\textsc{Tutor de Máster}: \\
+\mySupervisor, UPM\\
+\noindent\textsc{Directores}: \\
+\myProf, USC\\
+\myOtherProf, USC\\
+\noindent\textsc{Tutor del Programa de Doctorado}: \\
+Bernardo Adeva Andany, USC\\
+
+
+\medskip
+
+%\noindent\spacedlowsmallcaps{Location}: \\
+%\myLocation
+
+%\medskip
+
+%\noindent\spacedlowsmallcaps{Time Frame}: \\
+%\myTime
+
+%\noindent\myLocation, \today
+\noindent Madrid, \today
 \end{titlingpage}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
