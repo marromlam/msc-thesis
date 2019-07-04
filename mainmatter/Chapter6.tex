@@ -7,12 +7,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\todo[inline]{Aquí estaría bien poner algo de contexto. Di que hemos medido la fase con datos de 2015 y 2016 y pon una referencia al arxiv. También que ahora tus estudios se usaran para el analisis completo con datos de 2016 y 2017. Despues di cual es la idea de tu trabajo - hacer esos calculos más rapidos sin perdida de precisión.
+}
 
 En términos generales, cabe señalar unas ideas generales a tener en cuenta a la hora de medir la fase electrodébil $\phis$:
 \begin{itemize}
-    \item El rango de tempo de decaimiento es $t\in[0.3,15]$ ps. La cota inferior suprime mucho fondo combinatorio, mientras que la cota superior es debida a que ya no hay casi eventos a partir de $15$ ps.
-  \item Se ajusta el valor $\Gamma_s - \Gamma_d$, debido a que puede ser medido independientemente del valor de $\Gamma_d$, resolviéndose mejor que si se ajustase $\Gamma_s$ directamente.
-  \item Se asume que no hay dependencia entre los ratios \textit{penguin}--árbol, tomando por tanto un único $\lambda$ para todas las polarizaciones.
+  \item El rango de tempo de decaimiento es $t\in[0.3,15]$ ps. La cota inferior suprime mucho fondo combinatorio, mientras que la cota superior es debida a que ya no hay casi eventos a partir de $15$ ps.
+  \item Se ajusta el valor $\Gamma_{\text{s}} - \Gamma_{\text{d}}$, debido a que la aceptancia en el tiempo de desintegración depende de $\Gamma_{\text{d}}$, $$\epsilon_{\text{data}}^{\Bs} \propto \frac{1}{e^{-\Gamma_{\text{d}}} \otimes G(t,\sigma)},$$ y por tanto puede ser medido independientemente del valor de $\Gamma_d$, resolviéndose mejor que si se ajustase $\Gamma_s$ directamente.
+  \item Se toma un único $\lambda$ para todas las polarizaciones, asumiendo que la contribución tipo \emph{penguin} no depende de la polarización.
   \item El rango de masa del ajuste está limitado a la región de masa $m_{\text{KK}} = [990,1050]$ MeV alrededor de la resonancia del $\fai$ y dominada por ella, que se subdividide en seis bines de masa.
   \item No se tendrá en cuenta el $D$ wave en este análisis, porque es despreciable en este análisis, al ser su contribución a ala ventana de masa muy pequeña. El conjunte de factores $C_{SP}$ empleado es $$ C_{\text{SP}}  = \{0.8463,0.8756,0.8478,0.8833,0.9415,0.9756\}.$$
   \item Al tratar con \emph{full} MC o datos, cada evento $i$ está pesado con una ponderación de señal, $w_i$, obtenida mediante el método ${}_s$\textit{Plot}. De este modo se elimina el ruido y solo se modela la señal. La verosimilitud en cada muestra se escala por un factor $w_i \,\frac{\sum w_i}{\sum w_i^2}$, para tener en cuenta los pesos en las incertidumbres de los parámetros.
@@ -122,6 +124,8 @@ En términos generales, cabe señalar unas ideas generales a tener en cuenta a l
 
 
 \section{Determinación de la aceptancia en el tiempo de desintegración}
+
+\todo{Hacer de nuevo las gráficas?}
 
 La eficiencia de reconstrucción no es constante como función de la vida media del $\Bs$ debido a dos factores: los requerimientos de desplazamiento hechos en las trazas de señal en el \emph{trigger} y la selección de eventos; y a la propia eficiencia de reconstrucción de las trazas en el VELO CITAR 24. La aceptancia en el tiempo de desintegración es determinada usando el canal de control $B_d \rightarrow \Jpsi \text{K}{}^{*0}(892)(\rightarrow \antikaon \uppi^-)$, que es cinemáticamente muy similar a la señal y se asume que tiene una distribución de decaimiento puramente exponencial, se desprecia la anchura $\Delta \Gamma _d$ con una vida media muy bien conocida. \cite{paperPhis}
 
@@ -397,7 +401,7 @@ El algoritmo empleado para ajustar los datos al modelo de distribución angular 
 
 Para estimar este bias se hacen $10^4$ realizaciones de $107628$ eventos cada una, por ser esta la señal efectiva real en 2015 y 2016. Para ello se toman como parámetros para la simulación los resultados del ajuste nominal \cite{paperPhis}, empleando como generador el mismo modelo respecto del cual serán ajustados. En esta primera versión del generador no se incluyen fenómenos de aceptancia temporal ni angular, solo estaría incluida la distribución angular y del tiempo.
 %TODO mirar pulls
-
+\todo{explicar variables}
 Los \textit{pulls} 
 \begin{equation}
   \text{pull(par)} = \mathrm{ \frac{ par_{fit}^{value} - par_{gen}^{value} }{ par_{fit}^{uncertainty} } }
@@ -449,6 +453,9 @@ $\lambda_0$ &  $0.000030 \pm 0.000041$ &  $0.004131 \pm 0.000029$ & $ 0.000051 $
 
 \subsection{Sistemático debido a los factores $C_{SP}$}
 
+\todo[inline]{Aquí hay que comparar con el sistematico que pusimos. Hay incluso una tabla de cada sistematico de Csp por separado, antes de escoger el maximo.
+}
+
 Para estudiar la incertidumbre sistemática debida al conocimiento de los factores $C_{\text{SP}}$, se vienen considerando tres varaciones diferentes del modelo de onda S. Siempre se asume el mismo modelo para onda P, la resonancia $\fai$, que conlleva incertidumbres pequeñas puesto que es bien conocida. Para la onda S se toman en cuenta las siguientes alternativas \cite{paperPhis}:
 \begin{itemize}
   \item Se varía $1 \sigma$ los parámetros del polo del $\fzero$ y sus acoples $g_{\uppi \uppi}$ y $g_{\text{KK}}$. Se toma el valor de la desviación máxima como sistemático.
@@ -459,8 +466,8 @@ Una vez realizadas las tres consideraciones, se toma la desviación máxima como
 
 %TODO. toy mirar palabors
 El uso del previo método surge del coste computacional de realizar toy MC y observar cómo afecta el cambio de factores $C_{\text{SP}}$ al resto de parámetros. Ello introduce de por sí fluctuaciones debidas a las propias alternativas que son difíciles de conocer, y más si cabe al solo hacerse una realización de cada caso. Una vez construido un generador de MC, sin embargo, pueden ajustarse las realizaciones y comprobar el efecto en los parámetros.
-Existen varias formas de calcular los factores $C_{\text{SP}}$, y es ahí donde puede radicar la incertidumbre. Las simulaciones de \S \ref{sec:fitbias} toman unos factores, como entrada; y ahora se ajustarán los datos con un conjunto de factores distinto:
-\[C_{\text{SP}} = \{0.8672, 0.9281, 0.9055, 0.9485, 0.9734, 0.9840 \}.\]
+Existen varias formas de calcular los factores $C_{\text{SP}}$, y es ahí donde puede radicar la incertidumbre. Las simulaciones de \S \ref{sec:fitbias} toman unos factores, como entrada; y ahora se ajustarán los datos con un conjunto de factores distinto, correspondiente a suponer un spline para la contribución de onda S:
+\[C_{\text{SP}} = \{0.7163, 0.8784, 0.8532, 0.8601, 0.9271, 0.8771 \}.\]
 De este modo, se estudiarán las distribuciones de \textit{pulls} y residuos que aparecen respecto de los valores del generador MC. Se asigna como incertidumbre sistemática el valor medio de los obtenido de los residuos, como puede verse en la Tabla \ref{tab:residcsp}.
 
 
