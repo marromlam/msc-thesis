@@ -43,7 +43,6 @@
 %\setsansfont[BoldFont={* Medium}]{Helvetica Neue}
 \setsansfont[BoldFont={* Medium}]{Fira Sans}
 
-
 %\renewcommand\bfdefault{sb}
 %\renewcommand{\bfdefault}{sb}
 %\DeclareFontShape{\encodingdefault}{\rmdefault}{sb}{n}
@@ -231,6 +230,20 @@
 %\usepackage{psfrag}
 \usepackage[final]{microtype}
 
+% microtype, do I bother you with my life stories?
+\makeatletter
+\def\MT@warn@unknown{}
+\makeatother
+
+% hyperref, please, don't warn me with bullshit
+% \pdfstringdefDisableCommands{%
+% %  \def${}%
+%   \def\alpha{alpha}%
+%   \def\({}%
+%   \def\){}%
+%   \def\texttt#1{<#1>}%
+% }
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -259,7 +272,7 @@
 \frontmatter        
   \pagenumbering{Roman}
   \input{frontmatter/TitlepageUSC}
-  %\cleardoublepage\input{frontmatter/Declaration}
+  \cleardoublepage\input{frontmatter/Declaration}
   \cleardoublepage\input{frontmatter/Autorization}
   \cleardoublepage\input{frontmatter/Dedication}
   \cleardoublepage\input{frontmatter/Abstract}
@@ -322,6 +335,7 @@
   \cleardoublepage\listoffigures     
   \cleardoublepage\listoftables      
   \cleardoublepage\input{backmatter/Colophon}
+  \cleardoublepage\newpage\input{backmatter/TitleBack}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

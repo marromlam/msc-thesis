@@ -139,10 +139,10 @@
                 maxbibnames  = 3,
                 style        = nature]{biblatex}
 \DeclareFieldFormat[article,book]{title}{\textit{#1}}
-\renewcommand{\mkbibnamefirst}[1]{\textsc{#1}}
-\renewcommand{\mkbibnamelast}[1]{\textsc{#1}}
-\renewcommand{\mkbibnameprefix}[1]{\textsc{#1}}
-\renewcommand{\mkbibnameaffix}[1]{\textsc{#1}}
+\renewcommand{\mkbibnamegiven}[1]{\textsc{#1}}
+%\renewcommand{\mkbibnamelast}[1]{\textsc{#1}}
+%\renewcommand{\mkbibnameprefix}[1]{\textsc{#1}}
+%\renewcommand{\mkbibnameaffix}[1]{\textsc{#1}}
 \renewcommand*{\nameyeardelim}{\addcomma\space}
 \renewcommand*{\labelnamepunct}{\space\textendash\space}
 %\DeclareFieldFormat{url}{\mkbibacro{URL}\addcolon\space\href{#1}{\faExternalLink}}
@@ -180,9 +180,10 @@
 
 
 %% Relax parameters for line breaks
-\pretolerance = 9999%2000
-\tolerance    = 9999%6000
-\hbadness     = 9999%6000
+\pretolerance = 999999%2000
+\tolerance    = 999999%6000
+\hbadness     = 999999%6000
+%\vbadness     = 99999%6000
 \setlength{\emergencystretch}{3em}
 
 
