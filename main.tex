@@ -210,6 +210,7 @@
 \makeatother
 
 %% Change names of things...
+\AtBeginDocument{
 \renewcommand{\figurename}{Figura}%
 \renewcommand{\tablename}{Tabla}%
 \renewcommand{\partname}{Parte}%
@@ -220,6 +221,9 @@
 \renewcommand{\abstractname}{Abstract}
 \renewcommand{\listfigurename}{Lista de figuras}
 \renewcommand{\listtablename}{Lista de tablas}
+}
+%% Change names of spanish things...
+%\renewcommand\spanishtablename{Tabla}
 
 %% Embed fonts
 %\pdfinclusioncopyfonts 1
@@ -281,6 +285,7 @@
   \cleardoublepage\input{mainmatter/Chapter4}
   \cleardoublepage\input{mainmatter/Chapter5}
   \cleardoublepage\input{mainmatter/Chapter6}
+  \cleardoublepage\input{mainmatter/Chapter7}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
